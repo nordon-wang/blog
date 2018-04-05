@@ -8,14 +8,19 @@ const userController = require('./user');
 const commentController = require('./comment');
 const topicController = require('./topic');
 
-
 module.exports = () => {
 
 	let router = express.Router();
+	
+	//  router.use('/user',(req,res,next) => {
+    // 	res.render('session/regist.ejs')
+	//  })
+
 
 	/**
 	 * 用户
 	 */
+
 	router
 		.get('/user',userController.list)
 		.post('/user',userController.create)
@@ -25,19 +30,20 @@ module.exports = () => {
 	/**
 	 * 评论
 	 */
-	router
-	.get('/comment',commentController.list)
-	.post('/comment',commentController.create)
-	.patch('/comment',commentController.patch)
-	.delete('/comment',commentController.delete)
+	// router
+	// .get('/comment',commentController.list)
+	// .post('/comment',commentController.create)
+	// .patch('/comment',commentController.patch)
+	// .delete('/comment',commentController.delete)
 	
 	/**
 	 * 话题
 	 */
-	router
-	.get('/comment',topicController.list)
-	.post('/comment',topicController.create)
-	.patch('/comment',topicController.patch)
-	.delete('/comment',topicController.delete)
+	// router
+	// .get('/comment',topicController.list)
+	// .post('/comment',topicController.create)
+	// .patch('/comment',topicController.patch)
+	// .delete('/comment',topicController.delete)
+
 	return router;
 }

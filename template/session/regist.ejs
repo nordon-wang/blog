@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>管理员注册</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        body,
+        html {
+            background-color: #ccc;
+        }
+
+        form {
+            width: 500px;
+            height: 400px;
+            border: 1px solid #ccc;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            padding: 20px;
+            background-color: snow;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/api/regist" method="post" class="navbar-form navbar-left" id="form" role="search">
+        <div class="form-group">
+            <input type="text" name="email" class="form-control" placeholder="eamil">
+        </div>
+        <div class="form-group">
+            <input type="text" name="nickname" class="form-control" placeholder="nickname">
+        </div>
+        <div class="form-group">
+            <input type="password" name="pwd" class="form-control" placeholder="password">
+        </div>
+        <div class="">
+            <button type="submit" id="regist" class="btn btn-default">注册</button>
+        </div>
+    </form>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('#regist').on('click', (e) => {
+                e.preventDefault();
+                console.log( $('#form').serialize());
+                $.ajax({
+                    url:'/api/regist',
+                    type: 'post',
+                    data: $('#form').serialize(),
+                    dataType:'json',
+                    success(data){
+                        console.log(data);
+                        alert('注册成功');
+                        window.location.href  = '/admin/login'
+                    },
+                    error(err){
+                        console.log('错误',err);
+                    }
+                })
+            })
+
+        })
+    </script>
+</body>
+
+</html>

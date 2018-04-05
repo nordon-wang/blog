@@ -3,18 +3,18 @@ const common = require('../common/index');
 
 
 
-export.list = async function(req,res,next){
+exports.list = async function(req,res,next){
 	console.log('topics get');
 }
 
-export.create = async function(req,res,next){
+exports.create = async function(req,res,next){
 	console.log('topics create');
 }
 
-export.patch = async function(req,res,next){
+exports.patch = async function(req,res,next){
 	console.log('topics patch');
 }
 
-export.delete = async function(req,res,next){
+exports.delete = async function(req,res,next){
 	console.log('topics delete');
 }
